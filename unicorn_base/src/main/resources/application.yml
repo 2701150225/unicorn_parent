@@ -1,0 +1,13 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: unicorn_base
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/unicorn_base
+    username: root
+    password: root
+  jpa:
+    database: mysql
+    show-sql: true
