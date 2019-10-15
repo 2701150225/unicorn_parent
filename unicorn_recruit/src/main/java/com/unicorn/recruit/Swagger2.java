@@ -41,7 +41,6 @@ public class Swagger2 {
                 .title("招聘-微服务 api  说明")
                 .contact(new Contact("wss","www.wangkun.xyz","ahkjqutao@163.com"))
                 .version("0.1")
-
              // .termsOfServiceUrl("localhost:8080/demo1/")
                 .description("招聘-微服务-标签 ")
                 .build();
