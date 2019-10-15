@@ -9,10 +9,8 @@
     <modules>
         <module>unicorn_common</module>
         <module>unicorn_base</module>
-        <module>unicorn_ recruit</module>
-        <module>unicorn_ recruit</module>
-        <module>unicorn_ recruit</module>
-        <module>unicorn_ recruit</module>
+        <module>unicorn_recruit</module>
+
     </modules>
 
     <groupId>com.unicorn</groupId>

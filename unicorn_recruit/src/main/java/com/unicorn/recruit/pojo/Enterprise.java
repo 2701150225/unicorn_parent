@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -13,14 +14,14 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name="tb_enterprise")
+@Table(name = "tb_enterprise")
 public class Enterprise implements Serializable {
     /**
      *
      */
     private static final long serialVersionUID = 1L;
 
-
+    @Id
     @ApiModelProperty("ID")
     private java.lang.String id;
 

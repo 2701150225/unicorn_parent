@@ -43,7 +43,7 @@ public class Recruit implements Serializable {
     @ApiModelProperty("createtime")
 
     private java.util.Date createtime;//创建日期
-    @ApiModelProperty("状态")
+    @ApiModelProperty("状态 0：关闭 1:开启  2：推荐")
 
     private String state;//状态
     @ApiModelProperty("网址")
