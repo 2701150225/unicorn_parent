@@ -35,6 +35,7 @@ public class Swagger2 {
      * 该套 API 说明，包含作者、简介、版本、host、服务URL
      * @return
      */
+
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("招聘-微服务 api 说明")
