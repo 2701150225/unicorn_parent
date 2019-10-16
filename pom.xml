@@ -10,6 +10,7 @@
         <module>unicorn_common</module>
         <module>unicorn_base</module>
         <module>unicorn_recruit</module>
+        <module>unicorn_qa</module>
 
     </modules>
 
