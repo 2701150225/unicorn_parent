@@ -9,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import util.IdWorker;
+import util.IdUtil;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -30,7 +30,7 @@ public class ProblemServiceImpl implements ProblemService {
     private ProblemDao problemDao;
 
     @Resource
-    private IdWorker idWorker;
+    private IdUtil idWorker;
 
     @Override
     public Page<Problem> newlist(String labelid, int page, int size) {

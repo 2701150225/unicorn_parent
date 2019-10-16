@@ -9,8 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import util.IdWorker;
+import util.IdUtil;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -35,7 +34,7 @@ public class LabelServiceImpl   implements LabelService {
     private LabelDao labelDao;
 
     @Autowired
-    private IdWorker idWorker;
+    private IdUtil idWorker;
 
     @Override
     public void save(Label label) {

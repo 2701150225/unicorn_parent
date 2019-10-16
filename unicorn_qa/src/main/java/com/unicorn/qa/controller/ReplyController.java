@@ -6,6 +6,7 @@ import com.unicorn.qa.service.ReplyService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 @RequestMapping("/reply")
+@Api(value = "ReplyController",description = "回答相关")
 public class ReplyController {
 
 	@Autowired

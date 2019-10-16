@@ -5,6 +5,7 @@ import com.unicorn.qa.service.ProblemService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 @RequestMapping("/problem")
+@Api(value = "ProblemController",description = "问题相关")
 public class ProblemController {
 
     @Autowired

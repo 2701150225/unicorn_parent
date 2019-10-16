@@ -3,8 +3,7 @@ package com.unicorn.base;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import util.IdWorker;
+import util.IdUtil;
 
 /**
  * @Author:wangsusheng
@@ -19,8 +18,8 @@ public class BaseApplication {
     }
 
     @Bean
-    public IdWorker idWorker(){
-        return new IdWorker(1, 1);
+    public IdUtil idWorker(){
+        return new IdUtil(1, 1);
     }
 
 }

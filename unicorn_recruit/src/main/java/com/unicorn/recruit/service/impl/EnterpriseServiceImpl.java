@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import util.IdWorker;
+import util.IdUtil;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -30,7 +30,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     private EnterpriseDao enterpriseDao;
 
     @Autowired
-    private IdWorker idWorker;
+    private IdUtil idWorker;
 
     @Override
     public List<Enterprise> hotList() {
