@@ -3,6 +3,7 @@ package com.unicorn.article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -16,6 +17,7 @@ import util.IdUtil;
  * @Date: 2019/10/16 13:39
  */
 @SpringBootApplication
+@EnableCaching
 public class ArticleApplication {
 
     public static void main(String[] args) {

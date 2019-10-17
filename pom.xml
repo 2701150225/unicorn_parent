@@ -11,6 +11,7 @@
         <module>unicorn_base</module>
         <module>unicorn_recruit</module>
         <module>unicorn_qa</module>
+        <module>unicorn_activity</module>
 
     </modules>
 

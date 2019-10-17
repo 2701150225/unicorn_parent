@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/unicorn_activity/unicorn_activity.iml" filepath="$PROJECT_DIR$/unicorn_activity/unicorn_activity.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_article/unicorn_article.iml" filepath="$PROJECT_DIR$/unicorn_article/unicorn_article.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_base/unicorn_base.iml" filepath="$PROJECT_DIR$/unicorn_base/unicorn_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_common/unicorn_common.iml" filepath="$PROJECT_DIR$/unicorn_common/unicorn_common.iml" />
