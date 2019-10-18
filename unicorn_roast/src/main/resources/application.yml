@@ -1,0 +1,13 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: unicorn_roast
+  data:
+    mongodb:
+      host: 39.105.97.53
+      database: unicorn_roast
+
+  redis:
+    host: 39.105.97.53
+    password: 123
