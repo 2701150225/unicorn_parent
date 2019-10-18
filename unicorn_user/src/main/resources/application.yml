@@ -1,0 +1,17 @@
+server: 
+  port: 9008
+spring: 
+  application:  
+    name: unicorn_user #指定服务名
+  datasource:  
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.105.97.53:3306/unicorn_user?characterEncoding=UTF8&useSSL=false
+    username: root
+    password: root1234
+  jpa: 
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 39.105.97.53
+    password: 123
+    port: 6379
