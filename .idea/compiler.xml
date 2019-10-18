@@ -12,6 +12,8 @@
         <module name="unicorn_common" />
         <module name="unicorn_qa" />
         <module name="unicorn_recruit" />
+        <module name="unicorn_roast" />
+        <module name="unicorn_user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +24,8 @@
       <module name="unicorn_parent" target="1.8" />
       <module name="unicorn_qa" target="1.8" />
       <module name="unicorn_recruit" target="1.8" />
+      <module name="unicorn_roast" target="1.8" />
+      <module name="unicorn_user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

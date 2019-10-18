@@ -2,7 +2,6 @@ package com.unicorn.user;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import util.IdUtil;
 import util.JwtUtil;
 
@@ -22,13 +21,13 @@ public class UserApplication {
 		return new IdUtil(1, 1);
 	}
 
-	@Bean
-	public BCryptPasswordEncoder encoder(){
-		return new BCryptPasswordEncoder();
-	}
+//	@Bean
+//	public BCryptPasswordEncoder encoder(){
+//		return new BCryptPasswordEncoder();
+//	}
 
-	@Bean
-	public JwtUtil jwtUtil(){
-		return new JwtUtil();
-	}
+//	@Bean
+//	public JwtUtil jwtUtil(){
+//		return new JwtUtil();
+//	}
 }

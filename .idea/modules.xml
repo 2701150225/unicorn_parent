@@ -9,6 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/unicorn_parent.iml" filepath="$PROJECT_DIR$/.idea/unicorn_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_qa/unicorn_qa.iml" filepath="$PROJECT_DIR$/unicorn_qa/unicorn_qa.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_recruit/unicorn_recruit.iml" filepath="$PROJECT_DIR$/unicorn_recruit/unicorn_recruit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unicorn_roast/unicorn_roast.iml" filepath="$PROJECT_DIR$/unicorn_roast/unicorn_roast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unicorn_user/unicorn_user.iml" filepath="$PROJECT_DIR$/unicorn_user/unicorn_user.iml" />
     </modules>
   </component>
 </project>

@@ -51,7 +51,7 @@ public interface UserService {
      *
      * @param user
      */
-    public void add(User user);
+    public void add(User user,String code);
 
     /**
      * 修改
