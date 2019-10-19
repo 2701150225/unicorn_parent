@@ -11,7 +11,3 @@ spring:
   jpa: 
     database: MySQL
     show-sql: true
-  redis:
-    host: 39.105.97.53
-    password: 123
-    port: 6379
