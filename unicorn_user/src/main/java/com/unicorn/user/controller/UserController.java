@@ -7,14 +7,18 @@ import entity.Result;
 import entity.StatusCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import util.JwtUtil;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.unicorn.user.util.MyUtils.getIpAddr;
 
 /**
  * @Author:wangsusheng
@@ -49,15 +53,16 @@ public class UserController {
      */
     @ApiOperation(value = "用户注册", notes = "用户注册")
     @RequestMapping(value = "/register/{code}", method = RequestMethod.POST)
-    public Result regist(@PathVariable String code, @RequestBody User user) {
+    public Result regist(@PathVariable String code, @RequestBody User user, HttpServletRequest request) {
         //得到缓存中的验证码
-        String checkcodeRedis = (String) redisTemplate.opsForValue().get("checkcode_" + user.getMobile());
+        String checkcodeRedis = (String) redisTemplate.opsForValue().get("smscode_" + user.getMobile());
         if (checkcodeRedis.isEmpty()) {
             return new Result(false, StatusCode.ERROR, "请先获取手机验证码");
         }
         if (!checkcodeRedis.equals(code)) {
             return new Result(false, StatusCode.ERROR, "请输入正确的验证码");
         }
+        user.setLoginip(getIpAddr(request));
         userService.add(user, code);
         return new Result(true, StatusCode.OK, "注册成功");
     }
@@ -150,4 +155,17 @@ public class UserController {
         return new Result(true, StatusCode.OK, "删除成功");
     }
 
+    @ApiOperation(value="用户登录",notes = "用户登录")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Result login(@RequestBody User user,HttpServletRequest  request){
+
+        userService.updateUser(new Date(),getIpAddr(request),user.getMobile());
+        user = userService.login(user.getMobile(), user.getPassword());
+        if(user==null){
+            return new Result(false, StatusCode.LOGINERROR, "登录失败");
+        }
+        Map<String, Object> map = new HashMap<>();
+        map.put("roles", "user");
+        return new Result(true, StatusCode.OK, "登录成功", map);
+    }
 }

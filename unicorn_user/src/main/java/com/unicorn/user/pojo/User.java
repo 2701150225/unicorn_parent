@@ -89,10 +89,7 @@ public class User implements Serializable{
 
 
 	@ApiModelProperty("登录Ip")
-	private java.lang.String loginIp;
-
-
-
+	private java.lang.String loginip;
 
 
 }

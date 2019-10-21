@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import util.IdUtil;
 
@@ -22,11 +23,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import static com.unicorn.user.util.MyUtils.getIpAddr;
+
 /**
  * @Author:wangsusheng
  * @Date: 2019/10/18 17:03
  */
 @Service
+
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -42,8 +46,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-//    @Autowired
-//    private BCryptPasswordEncoder encoder;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     @Resource
     private HttpServletRequest request;
@@ -103,8 +107,9 @@ public class UserServiceImpl implements UserService {
     public void add(User user, String code) {
         user.setId(idUtil.nextId() + "");
         //密码加密
-        //user.setPassword(encoder.encode(user.getPassword()));
+        user.setPassword(encoder.encode(user.getPassword()));
         String syscode = (String) redisTemplate.opsForValue().get("smscode_" + user.getMobile());
+        System.out.println(syscode);
         //提取系统正确的验证码      
         if (syscode == null) {
             throw new RuntimeException("请输入验证码");
@@ -118,6 +123,7 @@ public class UserServiceImpl implements UserService {
         user.setRegdate(new Date());//注册日期
         user.setUpdatedate(new Date());//更新日期
         user.setLastdate(new Date());//最后登陆日期
+
         userDao.save(user);
     }
 
@@ -204,7 +210,7 @@ public class UserServiceImpl implements UserService {
         //生成六位数字随机数
         String checkcode = RandomStringUtils.randomNumeric(6);
         //向缓存中放一份
-        redisTemplate.opsForValue().set("checkcode_" + mobile, checkcode, 6, TimeUnit.HOURS);
+        redisTemplate.opsForValue().set("smscode_" + mobile, checkcode, 6, TimeUnit.HOURS);
         //给用户发一份
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
@@ -214,13 +220,22 @@ public class UserServiceImpl implements UserService {
         System.out.println("验证码为：" + checkcode);
     }
 
-//    public User login(String mobile, String password) {
-//        User user = userDao.findByMobile(mobile);
-//        if(user!=null && encoder.matches(password, user.getPassword())){
-//            return user;
-//        }
-//        return null;
-//    }
+    public User login(String mobile, String password) {
+        User user = userDao.findByMobile(mobile);
+        if(user!=null && encoder.matches(password, user.getPassword())){
+            return user;
+        }else{
+            return null;
+        }
+
+    }
+
+    @Override
+    public void updateUser(Date lastdate, String loginip, String mobile) {
+
+    }
+
+
 //
 //    @Transactional
 //    public void updatefanscountandfollowcount(int x, String userid, String friendid) {
