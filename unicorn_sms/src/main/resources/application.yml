@@ -1,0 +1,13 @@
+server:
+  port: 9009
+spring:
+  application:
+    name: unicorn-sms
+  rabbitmq:
+    host: 39.105.97.53
+aliyun:
+  sms:
+    accessKeyId: LTAI4Fv9hdXMrcowg86xvSbA
+    accessKeySecret: zHMQLdPPPZzEgX2nQQDGy6l6RCcxN1
+    template_code: SMS_175543023
+    sign_name: 独角兽IT网
