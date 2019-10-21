@@ -4,6 +4,7 @@ import com.unicorn.user.dao.UserDao;
 import com.unicorn.user.pojo.User;
 import com.unicorn.user.service.UserService;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,6 +38,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
 //    @Autowired
 //    private BCryptPasswordEncoder encoder;
@@ -205,7 +209,7 @@ public class UserServiceImpl implements UserService {
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
         map.put("checkcode", checkcode);
-        //rabbitTemplate.convertAndSend("sms", map);
+        rabbitTemplate.convertAndSend("sms", map);
         //在控制台显示一份【方便测试】
         System.out.println("验证码为：" + checkcode);
     }
