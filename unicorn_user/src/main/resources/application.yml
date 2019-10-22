@@ -17,3 +17,7 @@ spring:
     port: 6379
   rabbitmq:
     host: 39.105.97.53
+jwt:
+  config:
+    key: unicorn
+    ttl: 36000
