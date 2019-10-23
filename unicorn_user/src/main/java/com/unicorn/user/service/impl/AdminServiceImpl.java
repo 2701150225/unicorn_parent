@@ -37,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
 
     public Admin login(Admin admin) {
         //先根据用户名查询对象。
-        Admin adminLogin = adminDao.findByLoginname(admin.getLoginname());
+        Admin adminLogin = adminDao.findByLoginname(admin.getUsername());
         //然后拿数据库中的密码和用户输入的密码匹配是否相同。
         if (adminLogin != null && encoder.matches(admin.getPassword(), adminLogin.getPassword())) {
             //保证数据库中的对象中的密码和用户输入的密码是一致的。登录成功

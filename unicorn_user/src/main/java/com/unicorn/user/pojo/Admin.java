@@ -29,7 +29,7 @@ public class Admin implements Serializable {
 
 
     @ApiModelProperty("登陆名称")
-    private java.lang.String loginname;
+    private java.lang.String username;
 
 
     @ApiModelProperty("密码")

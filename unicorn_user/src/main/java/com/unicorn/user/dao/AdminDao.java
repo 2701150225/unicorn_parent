@@ -12,6 +12,6 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface AdminDao extends JpaRepository<Admin,String>, JpaSpecificationExecutor<Admin> {
 
-    @Query(value = "select * FROM tb_admin  where loginname=? ", nativeQuery = true)
-    public Admin findByLoginname(String loginname);
+    @Query(value = "select * FROM tb_admin  where username=? ", nativeQuery = true)
+    public Admin findByLoginname(String username);
 }

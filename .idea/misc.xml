@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/unicorn_article/pom.xml" />
         <option value="$PROJECT_DIR$/unicorn_roast/pom.xml" />
         <option value="$PROJECT_DIR$/unicorn_user/pom.xml" />
+        <option value="$PROJECT_DIR$/unicorn_sms/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
