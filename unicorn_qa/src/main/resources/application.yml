@@ -13,7 +13,7 @@ spring:
     show-sql: true
 jwt:
   config:
-    key: itcast
+    key: unicorn
 eureka:
   client:
     service-url:

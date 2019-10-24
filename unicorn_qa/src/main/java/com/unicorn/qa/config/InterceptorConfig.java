@@ -1,6 +1,6 @@
-package com.unicorn.user.config;
+package com.unicorn.qa.config;
 
-import com.unicorn.user.interceptor.JwtInterceptor;
+import com.unicorn.qa.interceptor.JwtInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,9 +17,9 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
         registry.addInterceptor(jwtInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/**/login/**");
-
     }
 
+    //设置允许访问swagger
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/swagger-ui.html")
@@ -28,6 +28,5 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
 
     }
-
 
 }
