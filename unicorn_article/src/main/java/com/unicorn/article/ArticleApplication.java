@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import util.IdUtil;
+import util.JwtUtil;
 
 /**
  * @Author:wangsusheng
@@ -47,6 +48,11 @@ public class ArticleApplication {
             template.afterPropertiesSet();
             return template;
         }
+    }
+
+    @Bean
+    public JwtUtil jwtUtil() {
+        return new JwtUtil();
     }
 
 }
