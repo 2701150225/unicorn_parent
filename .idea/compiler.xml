@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tensquare_sms" />
         <module name="unicorn_activity" />
         <module name="unicorn_article" />
         <module name="unicorn_base" />
@@ -20,7 +19,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="tensquare_sms" target="1.8" />
       <module name="unicorn_activity" target="1.8" />
       <module name="unicorn_article" target="1.8" />
       <module name="unicorn_base" target="1.8" />

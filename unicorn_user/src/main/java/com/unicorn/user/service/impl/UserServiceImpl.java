@@ -208,16 +208,16 @@ public class UserServiceImpl implements UserService {
 
     public void sendSms(String mobile) {
         //生成六位数字随机数
-        String checkcode = RandomStringUtils.randomNumeric(6);
+        String code = RandomStringUtils.randomNumeric(6);
         //向缓存中放一份
-        redisTemplate.opsForValue().set("smscode_" + mobile, checkcode, 6, TimeUnit.HOURS);
+        redisTemplate.opsForValue().set("smscode_" + mobile, code, 6, TimeUnit.HOURS);
         //给用户发一份
         Map<String, String> map = new HashMap<>();
         map.put("mobile", mobile);
-        map.put("checkcode", checkcode);
+        map.put("code", code);
         rabbitTemplate.convertAndSend("sms", map);
         //在控制台显示一份【方便测试】
-        System.out.println("验证码为：" + checkcode);
+        System.out.println("验证码为：" + code);
     }
 
     public User login(String mobile, String password) {

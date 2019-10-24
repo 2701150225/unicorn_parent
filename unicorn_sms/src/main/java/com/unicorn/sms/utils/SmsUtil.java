@@ -69,6 +69,7 @@ public class SmsUtil {
         request.setOutId("yourOutId");
         //hint 此处可能会抛出异常，注意catch
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
+        System.out.println(sendSmsResponse.getCode()+":"+sendSmsResponse.getMessage());
         return sendSmsResponse;
     }
 
@@ -97,6 +98,8 @@ public class SmsUtil {
         request.setCurrentPage(1L);
         //hint 此处可能会抛出异常，注意catch
         QuerySendDetailsResponse querySendDetailsResponse = acsClient.getAcsResponse(request);
+        String code =querySendDetailsResponse.getCode();
+        System.out.println(code+"123"+querySendDetailsResponse.getMessage());
         return querySendDetailsResponse;
     }
 }

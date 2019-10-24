@@ -29,12 +29,11 @@ public class SmsListener {
     @RabbitHandler
     public void executeSms(Map<String, String> map){
         String mobile = map.get("mobile");
-        String checkcode = map.get("checkcode");
+        String code = map.get("code");
         System.out.println("手机号："+map.get("mobile"));
-        System.out.println("验证码："+map.get("checkcode"));
+        System.out.println("验证码："+map.get("code"));
         try {
-            smsUtil.sendSms(mobile, template_code, sign_name, "{\"checkcode\":\""+checkcode+"\"}");
-            System.out.println(template_code+sign_name+"3");
+            smsUtil.sendSms(mobile, template_code, sign_name, "{\"code\":\""+code+"\"}");
         } catch (ClientException e) {
             e.printStackTrace();
         }
