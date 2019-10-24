@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import util.IdUtil;
+import util.JwtUtil;
 
 /**
  * @Author:wangsusheng
@@ -18,5 +19,11 @@ public class RecruitApplication {
     public IdUtil idWorkker(){
         return new IdUtil(1, 1);
     }
+
+    @Bean
+    public JwtUtil jwtUtil() {
+        return new JwtUtil();
+    }
+
 
 }
