@@ -34,6 +34,8 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private  JwtUtil jwtUtil;
 
 
     /**
@@ -42,8 +44,8 @@ public class UserController {
     @ApiOperation(value = "用户发送短信验证码", notes = "用户发送短信验证码")
     @RequestMapping(value = "/sendsms/{mobile}", method = RequestMethod.POST)
     public Result sendSms(@PathVariable String mobile) {
-        userService.sendSms(mobile);
-        return new Result(true, StatusCode.OK, "发送成功");
+
+        return new Result(true, StatusCode.OK, userService.sendSms(mobile).getMessage(),userService.sendSms(mobile));
     }
 
     /**
@@ -164,8 +166,10 @@ public class UserController {
         if(user==null){
             return new Result(false, StatusCode.LOGINERROR, "登录失败");
         }
+        String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
         Map<String, Object> map = new HashMap<>();
         map.put("roles", "user");
+        map.put("token",token);
         return new Result(true, StatusCode.OK, "登录成功", map);
     }
 }

@@ -1,5 +1,6 @@
 package com.unicorn.user.dao;
 
+import com.unicorn.user.pojo.Admin;
 import com.unicorn.user.pojo.User;
 import io.lettuce.core.dynamic.annotation.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,5 +29,6 @@ public interface UserDao extends JpaRepository<User, String>, JpaSpecificationEx
     @Modifying
     @Query(value = "update  tb_user set lastdate=?1,loginip=?2  where mobile=?3", nativeQuery = true)
     public void updateUser(Date lastdate, String loginip, String mobile);
+
 
 }

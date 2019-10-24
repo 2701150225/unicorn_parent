@@ -1,6 +1,7 @@
 package com.unicorn.user.service;
 
 import com.unicorn.user.pojo.User;
+import entity.Result;
 import org.springframework.data.domain.Page;
 
 import java.util.Date;
@@ -72,7 +73,7 @@ public interface UserService {
      * 发送短信
      * @param mobile
      */
-    void sendSms(String mobile);
+    Result sendSms(String mobile);
 
     User login(String mobile, String password);
 

@@ -3,6 +3,7 @@ package com.unicorn.user.service.impl;
 import com.unicorn.user.dao.UserDao;
 import com.unicorn.user.pojo.User;
 import com.unicorn.user.service.UserService;
+import entity.Result;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,18 +207,26 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    public void sendSms(String mobile) {
-        //生成六位数字随机数
-        String code = RandomStringUtils.randomNumeric(6);
-        //向缓存中放一份
-        redisTemplate.opsForValue().set("smscode_" + mobile, code, 6, TimeUnit.HOURS);
-        //给用户发一份
-        Map<String, String> map = new HashMap<>();
-        map.put("mobile", mobile);
-        map.put("code", code);
-        rabbitTemplate.convertAndSend("sms", map);
-        //在控制台显示一份【方便测试】
-        System.out.println("验证码为：" + code);
+    public Result sendSms(String mobile) {
+        Result result=new Result();
+        User user=userDao.findByMobile(mobile);
+        if(user!=null){
+            result.setMessage("手机号已注册，请前去登录");
+        }else{
+            //生成六位数字随机数
+            String code = RandomStringUtils.randomNumeric(6);
+            //向缓存中放一份
+            redisTemplate.opsForValue().set("smscode_" + mobile, code, 6, TimeUnit.HOURS);
+            //给用户发一份
+            Map<String, String> map = new HashMap<>();
+            map.put("mobile", mobile);
+            map.put("code", code);
+            rabbitTemplate.convertAndSend("sms", map);
+            //在控制台显示一份【方便测试】
+            System.out.println("验证码为：" + code);
+            result.setMessage("发送成功");
+        }
+      return  result;
     }
 
     public User login(String mobile, String password) {
