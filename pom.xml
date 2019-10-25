@@ -12,6 +12,9 @@
         <module>unicorn_recruit</module>
         <module>unicorn_qa</module>
         <module>unicorn_activity</module>
+        <module>unicorn_eureka</module>
+        <module>unicorn_article</module>
+        <module>unicorn_eureka</module>
 
     </modules>
 
@@ -37,6 +40,8 @@
         <java.version>1.8</java.version>
     </properties>
 
+
+    <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,8 +52,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Finchley.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 
+    </dependencies>
+    </dependencyManagement>
 
 
 </project>
