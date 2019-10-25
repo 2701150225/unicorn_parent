@@ -4,9 +4,9 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
+import org.springframework.boot.context.properties.*;
 import java.util.Date;
+
 
 /**
  * Created by Administrator on 2018/4/11.

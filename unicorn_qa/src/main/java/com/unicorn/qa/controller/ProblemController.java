@@ -1,5 +1,6 @@
 package com.unicorn.qa.controller;
 
+import com.unicorn.qa.client.BaseClient;
 import com.unicorn.qa.pojo.Problem;
 import com.unicorn.qa.service.ProblemService;
 import entity.PageResult;
@@ -31,12 +32,14 @@ public class ProblemController {
     @Autowired
     private HttpServletRequest request;
 
+    @Autowired
+    private BaseClient baseClient;
 
-    //	@RequestMapping(value = "/label/{labelId}", method = RequestMethod.GET)
-//	public Result findByLabelId(@PathVariable String labelId){
-//		Result result = baseClient.findById(labelId);
-//		return result;
-//	}
+    	@RequestMapping(value = "/label/{labelId}", method = RequestMethod.GET)
+	public Result findByLabelId(@PathVariable String labelId){
+		Result result = baseClient.findById(labelId);
+		return result;
+	}
     @ApiOperation(value = "获取最新问答列表", notes = "获取最新问答列表")
     @RequestMapping(value = "/newlist/{labelid}/{page}/{size}", method = RequestMethod.GET)
     public Result newList(@PathVariable String labelid, @PathVariable int page, @PathVariable int size) {

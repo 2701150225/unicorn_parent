@@ -11,6 +11,7 @@
         <module name="unicorn_base" />
         <module name="unicorn_common" />
         <module name="unicorn_eureka" />
+        <module name="unicorn_friend" />
         <module name="unicorn_qa" />
         <module name="unicorn_recruit" />
         <module name="unicorn_roast" />
@@ -25,6 +26,7 @@
       <module name="unicorn_base" target="1.8" />
       <module name="unicorn_common" target="1.8" />
       <module name="unicorn_eureka" target="1.8" />
+      <module name="unicorn_friend" target="1.8" />
       <module name="unicorn_parent" target="1.8" />
       <module name="unicorn_qa" target="1.8" />
       <module name="unicorn_recruit" target="1.8" />
