@@ -12,6 +12,11 @@
     <artifactId>unicorn_roast</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.unicorn</groupId>
             <artifactId>unicorn_common</artifactId>

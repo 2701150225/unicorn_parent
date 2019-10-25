@@ -11,3 +11,10 @@ aliyun:
     accessKeySecret: zHMQLdPPPZzEgX2nQQDGy6l6RCcxN1
     template_code: SMS_175543023
     sign_name: 独角兽IT网
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true
