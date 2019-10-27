@@ -18,13 +18,13 @@ import java.util.Date;
 public interface UserDao extends JpaRepository<User, String>, JpaSpecificationExecutor<User> {
     public User findByMobile(String mobile);
 
-//	@Modifying
-//	@Query(value = "update tb_user set fanscount=fanscount+? where id=?", nativeQuery = true)
-//    public void updatefanscount(int x, String friendid);
-//
-//    @Modifying
-//    @Query(value = "update tb_user set followcount=followcount+? where id=?", nativeQuery = true)
-//    public void updatefollowcount(int x, String userid);
+	@Modifying
+	@Query(value = "update tb_user set fanscount=fanscount+? where id=?", nativeQuery = true)
+    public void updatefanscount(int x, String friendid);
+
+    @Modifying
+    @Query(value = "update tb_user set followcount=followcount+? where id=?", nativeQuery = true)
+    public void updatefollowcount(int x, String userid);
 
     @Modifying
     @Query(value = "update  tb_user set lastdate=?1,loginip=?2  where mobile=?3", nativeQuery = true)

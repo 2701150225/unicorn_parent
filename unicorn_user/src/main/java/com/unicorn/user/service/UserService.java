@@ -78,4 +78,7 @@ public interface UserService {
     User login(String mobile, String password);
 
     void   updateUser(Date lastdate,String  loginip,String mobile);
+
+    void updatefanscountandfollowcount(int x, String userid, String friendid) ;
+
 }

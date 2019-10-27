@@ -70,6 +70,35 @@ public class UserController {
     }
 
     /**
+     * 更新好友粉丝数和用户关注数
+     * @return
+     */
+    @ApiOperation(value="更新好友粉丝数和用户关注数",notes = "更新好友粉丝数和用户关注数")
+    @RequestMapping(value = "/{userid}/{friendid}/{x}", method = RequestMethod.PUT)
+    public void updatefanscountandfollowcount(@PathVariable String userid, @PathVariable String friendid, @PathVariable int x){
+        userService.updatefanscountandfollowcount(x, userid, friendid);
+    }
+
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     */
+    @ApiOperation(value="用户登录",notes = "用户登录")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Result login(@RequestBody User user){
+        user = userService.login(user.getMobile(), user.getPassword());
+        if(user==null){
+            return new Result(false, StatusCode.LOGINERROR, "登录失败");
+        }
+        String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
+        Map<String, Object> map = new HashMap<>();
+        map.put("token", token);
+        map.put("roles", "user");
+        return new Result(true, StatusCode.OK, "登录成功", map);
+    }
+
+    /**
      * 查询全部数据
      *
      * @return

@@ -21,6 +21,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -245,10 +246,10 @@ public class UserServiceImpl implements UserService {
     }
 
 
-//
-//    @Transactional
-//    public void updatefanscountandfollowcount(int x, String userid, String friendid) {
-//        userDao.updatefanscount(x, friendid);
-//        userDao.updatefollowcount(x, userid);
-//    }
+
+    @Transactional
+    public void updatefanscountandfollowcount(int x, String userid, String friendid) {
+        userDao.updatefanscount(x, friendid);
+        userDao.updatefollowcount(x, userid);
+    }
 }
