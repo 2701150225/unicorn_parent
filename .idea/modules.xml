@@ -6,8 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/unicorn_article/unicorn_article.iml" filepath="$PROJECT_DIR$/unicorn_article/unicorn_article.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_base/unicorn_base.iml" filepath="$PROJECT_DIR$/unicorn_base/unicorn_base.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_common/unicorn_common.iml" filepath="$PROJECT_DIR$/unicorn_common/unicorn_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unicorn_config/unicorn_config.iml" filepath="$PROJECT_DIR$/unicorn_config/unicorn_config.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_eureka/unicorn_eureka.iml" filepath="$PROJECT_DIR$/unicorn_eureka/unicorn_eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_friend/unicorn_friend.iml" filepath="$PROJECT_DIR$/unicorn_friend/unicorn_friend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unicorn_manager/unicorn_manager.iml" filepath="$PROJECT_DIR$/unicorn_manager/unicorn_manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/unicorn_parent.iml" filepath="$PROJECT_DIR$/.idea/unicorn_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_qa/unicorn_qa.iml" filepath="$PROJECT_DIR$/unicorn_qa/unicorn_qa.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_recruit/unicorn_recruit.iml" filepath="$PROJECT_DIR$/unicorn_recruit/unicorn_recruit.iml" />
@@ -15,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/unicorn_search/unicorn_search.iml" filepath="$PROJECT_DIR$/unicorn_search/unicorn_search.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_sms/unicorn_sms.iml" filepath="$PROJECT_DIR$/unicorn_sms/unicorn_sms.iml" />
       <module fileurl="file://$PROJECT_DIR$/unicorn_user/unicorn_user.iml" filepath="$PROJECT_DIR$/unicorn_user/unicorn_user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/unicorn_web/unicorn_web.iml" filepath="$PROJECT_DIR$/unicorn_web/unicorn_web.iml" />
     </modules>
   </component>
 </project>

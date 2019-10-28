@@ -10,14 +10,17 @@
         <module name="unicorn_article" />
         <module name="unicorn_base" />
         <module name="unicorn_common" />
+        <module name="unicorn_config" />
         <module name="unicorn_eureka" />
         <module name="unicorn_friend" />
+        <module name="unicorn_manager" />
         <module name="unicorn_qa" />
         <module name="unicorn_recruit" />
         <module name="unicorn_roast" />
         <module name="unicorn_search" />
         <module name="unicorn_sms" />
         <module name="unicorn_user" />
+        <module name="unicorn_web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,8 +28,10 @@
       <module name="unicorn_article" target="1.8" />
       <module name="unicorn_base" target="1.8" />
       <module name="unicorn_common" target="1.8" />
+      <module name="unicorn_config" target="1.8" />
       <module name="unicorn_eureka" target="1.8" />
       <module name="unicorn_friend" target="1.8" />
+      <module name="unicorn_manager" target="1.8" />
       <module name="unicorn_parent" target="1.8" />
       <module name="unicorn_qa" target="1.8" />
       <module name="unicorn_recruit" target="1.8" />
@@ -34,6 +39,7 @@
       <module name="unicorn_search" target="1.8" />
       <module name="unicorn_sms" target="1.8" />
       <module name="unicorn_user" target="1.8" />
+      <module name="unicorn_web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

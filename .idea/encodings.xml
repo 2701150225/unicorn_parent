@@ -6,14 +6,16 @@
     <file url="file://$PROJECT_DIR$/unicorn_article" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_common" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/unicorn_eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/unicorn_config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_friend" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/unicorn_manager" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_qa" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_recruit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_roast" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_search" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_sms" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/unicorn_user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/unicorn_web" charset="UTF-8" />
   </component>
 </project>
