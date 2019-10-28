@@ -1,0 +1,37 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: unicorn‐manager #指定服务名
+eureka:
+  client:
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://127.0.0.1:6868/eureka/
+  instance:
+    prefer‐ip‐address: true
+zuul:
+  routes:
+    unicorn‐gathering: #活动
+     path: /activity/** #配置请求URL的请求规则
+      serviceId: unicorn‐activity #指定Eureka注册中心中的服务id
+    unicorn‐article: #文章
+     path: /article/** #配置请求URL的请求规则
+       serviceId: unicorn‐article #指定Eureka注册中心中的服务id
+    unicorn‐base: #基础
+     path: /base/** #配置请求URL的请求规则
+      serviceId: unicorn‐base #指定Eureka注册中心中的服务id
+    unicorn‐friend: #交友
+     path: /friend/** #配置请求URL的请求规则
+      serviceId: unicorn‐friend #指定Eureka注册中心中的服务id
+    unicorn‐qa: #问答
+     path: /qa/** #配置请求URL的请求规则
+      serviceId: unicorn‐qa #指定Eureka注册中心中的服务id
+    unicorn‐recruit: #招聘
+     path: /recruit/** #配置请求URL的请求规则
+      serviceId: unicorn‐recruit #指定Eureka注册中心中的服务id
+    unicorn‐spit: #吐槽
+     path: /roast/** #配置请求URL的请求规则
+      serviceId: unicorn‐roast #指定Eureka注册中心中的服务id
+    unicorn‐user: #用户
+     path: /user/** #配置请求URL的请求规则
+      serviceId: unicorn‐user #指定Eureka注册中心中的服务id
