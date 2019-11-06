@@ -15,6 +15,7 @@
         <module>unicorn_eureka</module>
         <module>unicorn_article</module>
         <module>unicorn_eureka</module>
+        <module>unicorn_test</module>
     </modules>
 
     <groupId>com.unicorn</groupId>

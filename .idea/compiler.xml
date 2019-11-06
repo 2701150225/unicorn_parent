@@ -19,6 +19,7 @@
         <module name="unicorn_roast" />
         <module name="unicorn_search" />
         <module name="unicorn_sms" />
+        <module name="unicorn_test" />
         <module name="unicorn_user" />
         <module name="unicorn_web" />
       </profile>
@@ -38,6 +39,7 @@
       <module name="unicorn_roast" target="1.8" />
       <module name="unicorn_search" target="1.8" />
       <module name="unicorn_sms" target="1.8" />
+      <module name="unicorn_test" target="1.8" />
       <module name="unicorn_user" target="1.8" />
       <module name="unicorn_web" target="1.8" />
     </bytecodeTargetLevel>
