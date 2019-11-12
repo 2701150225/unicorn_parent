@@ -21,11 +21,15 @@ import java.util.List;
  */
 @Component
 public class ExcelUtil {
+
+
     private static final List<String> PARAMS_LIST = new ArrayList<String>() {{
         add("username");
         add("password");
         add("brithday");
     }};
+
+
     private static final String XLSX = "xlsx";
 
     private static final String XLS = "xls";

@@ -48,7 +48,6 @@ public class LabelController {
         //获取头信息
         String header = request.getHeader("Authorization");
         System.out.println(header);
-
         List<Label> list = labelService.findAll();
         return new Result(true,StatusCode.OK,  "查询成功", list);
     }
