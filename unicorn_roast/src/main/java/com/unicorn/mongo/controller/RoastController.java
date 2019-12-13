@@ -64,6 +64,7 @@ public class RoastController {
     @ApiOperation(value="根据上级ID查询吐槽分页数据 ",notes = "根据上级ID查询吐槽分页数据 ")
     @RequestMapping(value = "/comment/{parentid}/{page}/{size}", method = RequestMethod.GET)
     public Result comment(@PathVariable String parentid, @PathVariable int page, @PathVariable int size){
+
         Page<Roast> pageData = roastService.pageQuery(parentid, page, size);
         return new Result(true, StatusCode.OK, "查询成功", new PageResult<Roast>(pageData.getTotalElements(), pageData.getContent()));
     }

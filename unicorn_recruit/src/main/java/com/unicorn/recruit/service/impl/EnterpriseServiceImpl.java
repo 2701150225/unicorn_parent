@@ -38,10 +38,14 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         return list;
     }
 
+
+
+
     @Override
     public List<Enterprise> findAll() {
         return enterpriseDao.findAll();
     }
+
 
     @Override
     public Page<Enterprise> findSearch(Map whereMap, int page, int size) {
@@ -50,16 +54,19 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         return enterpriseDao.findAll(specification, pageRequest);
     }
 
+
     @Override
     public List<Enterprise> findSearch(Map whereMap) {
         Specification<Enterprise> specification = createSpecification(whereMap);
         return enterpriseDao.findAll(specification);
     }
 
+
     @Override
     public Enterprise findById(String id) {
         return enterpriseDao.findById(id).get();
     }
+
 
     @Override
     public void add(Enterprise enterprise) {

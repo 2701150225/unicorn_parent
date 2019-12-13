@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2019/10/16 11:51
  */
 @Service
+
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired

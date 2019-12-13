@@ -17,8 +17,8 @@ import util.JwtUtil;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
 import static com.unicorn.user.util.MyUtils.getIpAddr;
+
 
 /**
  * @Author:wangsusheng
@@ -64,6 +64,7 @@ public class UserController {
         if (!checkcodeRedis.equals(code)) {
             return new Result(false, StatusCode.ERROR, "请输入正确的验证码");
         }
+        user.setLastdate(new Date());
         user.setLoginip(getIpAddr(request));
         userService.add(user, code);
         return new Result(true, StatusCode.OK, "注册成功");
@@ -76,7 +77,7 @@ public class UserController {
     @ApiOperation(value="更新好友粉丝数和用户关注数",notes = "更新好友粉丝数和用户关注数")
     @RequestMapping(value = "/{userid}/{friendid}/{x}", method = RequestMethod.PUT)
     public void updatefanscountandfollowcount(@PathVariable String userid, @PathVariable String friendid, @PathVariable int x){
-        userService.updatefanscountandfollowcount(x, userid, friendid);
+        userService.updatefanscountandfollowcount(x,userid,friendid);
     }
 
     /**
@@ -139,7 +140,7 @@ public class UserController {
 
     /**
      * 根据条件查询
-     *
+     *          0
      * @param searchMap
      * @return
      */
@@ -186,19 +187,19 @@ public class UserController {
         return new Result(true, StatusCode.OK, "删除成功");
     }
 
-    @ApiOperation(value="用户登录",notes = "用户登录")
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result login(@RequestBody User user,HttpServletRequest  request){
-
-        userService.updateUser(new Date(),getIpAddr(request),user.getMobile());
-        user = userService.login(user.getMobile(), user.getPassword());
-        if(user==null){
-            return new Result(false, StatusCode.LOGINERROR, "登录失败");
-        }
-        String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
-        Map<String, Object> map = new HashMap<>();
-        map.put("roles", "user");
-        map.put("token",token);
-        return new Result(true, StatusCode.OK, "登录成功", map);
-    }
+//    @ApiOperation(value="用户登录",notes = "用户登录")
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public Result login(@RequestBody User user,HttpServletRequest  request){
+//
+//        userService.updateUser(new Date(),getIpAddr(request),user.getMobile());
+//        user = userService.login(user.getMobile(), user.getPassword());
+//        if(user==null){
+//            return new Result(false, StatusCode.LOGINERROR, "登录失败");
+//        }
+//        String token = jwtUtil.createJWT(user.getId(), user.getMobile(), "user");
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("roles", "user");
+//        map.put("token",token);
+//        return new Result(true, StatusCode.OK, "登录成功", map);
+//    }
 }

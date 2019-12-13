@@ -32,27 +32,30 @@ public class RoastServiceImpl implements RoastService {
 
     /**
      * 查询全部吐槽内容
+     *
      * @return
      */
-    public List<Roast> findAll(){
+    public List<Roast> findAll() {
         return roastDao.findAll();
     }
 
     /**
      * 根据id查询吐槽内容
+     *
      * @param id
      * @return
      */
-    public Roast findById(String id){
+    public Roast findById(String id) {
         return roastDao.findById(id).get();
     }
 
     /**
      * 新增吐槽
+     *
      * @param roast
      */
-    public void save(Roast roast){
-        roast.set_id(idUtil.nextId()+"");
+    public void save(Roast roast) {
+        roast.set_id(idUtil.nextId() + "");
         //初始化数据完善
         roast.setPublishtime(new Date());//发布日期
         roast.setVisits(0);//浏览量
@@ -61,7 +64,7 @@ public class RoastServiceImpl implements RoastService {
         roast.setComment(0);//回复数
         roast.setState("1");//状态
         //判断当前吐槽是否有父节点
-        if(roast.getParentid()!=null && !"".equals(roast.getParentid())){
+        if (roast.getParentid() != null && !"".equals(roast.getParentid())) {
             //给父节点吐槽的回复数加一
             Query query = new Query();
             query.addCriteria(Criteria.where("_id").is(roast.getParentid()));
@@ -74,28 +77,30 @@ public class RoastServiceImpl implements RoastService {
 
     /**
      * 更新吐槽
+     *
      * @param roast
      */
-    public void update(Roast roast){
+    public void update(Roast roast) {
         roastDao.save(roast);
     }
 
     /**
      * 根据id删除吐槽
+     *
      * @param id
      */
-    public void deleteById(String id){
+    public void deleteById(String id) {
         roastDao.deleteById(id);
     }
 
 
-    public Page<Roast> pageQuery(String parentid, int page, int size){
-        Pageable pageable = PageRequest.of(page-1, size);
+    public Page<Roast> pageQuery(String parentid, int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
         return roastDao.findByParentid(parentid, pageable);
     }
 
     //db.spit.update({_id:"2"},{$inc:{visits:NumberInt(1)}} )
-    public void addthumbup(String id){
+    public void addthumbup(String id) {
         //方式一
 //        Spit spit = roastDao.findById(id).get();
 //        spit.setThumbup(spit.getThumbup()+1);

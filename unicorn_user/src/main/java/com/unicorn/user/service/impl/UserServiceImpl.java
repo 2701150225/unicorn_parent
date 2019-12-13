@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.support.PersistableIsNewStrategy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import util.IdUtil;
@@ -146,7 +147,7 @@ public class UserServiceImpl implements UserService {
     public void deleteById(String id) {
         String token = (String) request.getAttribute("claims_admin");
         if (token == null || "".equals(token)) {
-            throw new RuntimeException("权限不足！");
+           throw  new  RuntimeException("权限不足！");
         }
         userDao.deleteById(id);
     }
@@ -210,11 +211,11 @@ public class UserServiceImpl implements UserService {
 
     public Result sendSms(String mobile) {
         Result result=new Result();
-        User user=userDao.findByMobile(mobile);
-        if(user!=null){
-            result.setMessage("手机号已注册，请前去登录");
-        }else{
-            //生成六位数字随机数
+     //   User user=userDao.findByMobile(mobile);
+//        if(user!=null){
+//            result.setMessage("手机号已注册，请前去登录");
+//        }else{
+            //通过RandomStringUtils.randomNumeric工具类生成六位随机数
             String code = RandomStringUtils.randomNumeric(6);
             //向缓存中放一份
             redisTemplate.opsForValue().set("smscode_" + mobile, code, 6, TimeUnit.HOURS);
@@ -222,22 +223,22 @@ public class UserServiceImpl implements UserService {
             Map<String, String> map = new HashMap<>();
             map.put("mobile", mobile);
             map.put("code", code);
-            rabbitTemplate.convertAndSend("sms", map);
+           rabbitTemplate.convertAndSend("sms",map);
+
             //在控制台显示一份【方便测试】
             System.out.println("验证码为：" + code);
             result.setMessage("发送成功");
-        }
+  //      }
       return  result;
     }
 
     public User login(String mobile, String password) {
         User user = userDao.findByMobile(mobile);
         if(user!=null && encoder.matches(password, user.getPassword())){
-            return user;
+            return  user;
         }else{
             return null;
         }
-
     }
 
     @Override

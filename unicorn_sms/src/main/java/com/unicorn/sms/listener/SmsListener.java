@@ -16,7 +16,6 @@ import java.util.Map;
 @Component
 @RabbitListener(queues = "sms")
 public class SmsListener {
-
     @Autowired
     private SmsUtil smsUtil;
 
