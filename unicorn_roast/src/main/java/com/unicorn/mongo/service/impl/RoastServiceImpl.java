@@ -70,7 +70,7 @@ public class RoastServiceImpl implements RoastService {
             query.addCriteria(Criteria.where("_id").is(roast.getParentid()));
             Update update = new Update();
             update.inc("comment", 1);
-            mongoTemplate.updateFirst(query, update, "roast");
+           mongoTemplate.updateFirst(query,update,"roast");
         }
         roastDao.save(roast);
     }
@@ -122,6 +122,7 @@ public class RoastServiceImpl implements RoastService {
         Update update = new Update();
         update.inc("thumbup", 1);
         mongoTemplate.updateFirst(query, update, "roast");
+
 
     }
 

@@ -15,6 +15,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ import java.util.Map;
  * @Date: 2019/10/15 17:04
  */
 @Service
-public class RecruitServiceImpl implements RecruitService {
+public class    RecruitServiceImpl implements RecruitService {
 
 
     @Autowired
@@ -39,6 +40,8 @@ public class RecruitServiceImpl implements RecruitService {
 
     @Override
     public List<Recruit> findTop6ByStateNotOrderByCreatetimeDesc() {
+
+
         return recruitDao.findTop6ByStateNotOrderByCreatetimeDesc("0");
     }
 
@@ -51,6 +54,7 @@ public class RecruitServiceImpl implements RecruitService {
     public Page<Recruit> findSearch(Map whereMap, int page, int size) {
         Specification<Recruit> specification = createSpecification(whereMap);
         PageRequest pageRequest = PageRequest.of(page - 1, size);
+
         return recruitDao.findAll(specification, pageRequest);
     }
 
@@ -68,6 +72,7 @@ public class RecruitServiceImpl implements RecruitService {
     @Override
     public void add(Recruit recruit) {
         recruit.setId(idWorker.nextId() + "");
+        recruit.setCreatetime(new Date());
         recruitDao.save(recruit);
     }
 

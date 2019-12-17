@@ -66,6 +66,7 @@ public class RoastController {
     public Result comment(@PathVariable String parentid, @PathVariable int page, @PathVariable int size){
 
         Page<Roast> pageData = roastService.pageQuery(parentid, page, size);
+
         return new Result(true, StatusCode.OK, "查询成功", new PageResult<Roast>(pageData.getTotalElements(), pageData.getContent()));
     }
 
@@ -78,6 +79,7 @@ public class RoastController {
             return new Result(false, StatusCode.REPERROR, "不能重复点赞");
         }
         roastService.addthumbup(roastId);
+
         redisTemplate.opsForValue().set("roast_"+userid+"_"+roastId, 1);
         return new Result(true, StatusCode.OK, "点赞成功");
     }
