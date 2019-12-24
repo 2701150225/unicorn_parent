@@ -52,6 +52,7 @@ public class RoastController {
     public Result update(@PathVariable String roastId, @RequestBody Roast roast){
         roast.set_id(roastId);
         roastService.update(roast);
+
         return new Result(true, StatusCode.OK, "修改成功");
     }
 

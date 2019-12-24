@@ -88,7 +88,7 @@ public class FriendController {
             return new Result(false, StatusCode.LOGINERROR, "权限不足");
         }
         //得到当前登录的用户id
-        String userid = claims.getId();
+        String userid=claims.getId();
         friendService.deleteFriend(userid, friendid);
         userClient.updatefanscountandfollowcount(userid, friendid, -1);
         return new Result(true, StatusCode.OK, "删除成功");

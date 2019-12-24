@@ -56,6 +56,7 @@ public class FriendServiceImpl implements FriendService {
 
     public void deleteFriend(String userid, String friendid) {
         //删除还有表中userid到friendid这条数据
+        //
         friendDao.deletefriend(userid, friendid);
         //更新friendid到userid的islike为0
         friendDao.updateIslike("0", friendid, userid);
@@ -64,5 +65,6 @@ public class FriendServiceImpl implements FriendService {
         nofriend.setUserid(userid);
         nofriend.setFriendid(friendid);
         noFriendDao.save(nofriend);
+
     }
 }
